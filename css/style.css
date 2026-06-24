@@ -1,0 +1,178 @@
+@font-face {
+    font-family: 'Angelica';
+    src: url('fonts/Angelina.otf') format('otf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'ALaRus';
+    src: url('fonts/Rus.ttf') format('ttf');
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1.title,
+h2.title,
+h3.title h4.title,
+h5.title,
+h6.title {
+    font-family: 'ALaRuss';
+    font-size: 48px;
+    color: #676133;
+}
+
+p.text {
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-size: 13px;
+    color: #676133;
+}
+
+.container {
+    padding: 0 21px;
+}
+
+
+/* welcome */
+
+.welcome {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.welcome__image {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    background-position: bottom;
+    z-index: -1;
+}
+
+.welcome__title {
+    position: absolute;
+    z-index: 10;
+    font-family: 'ALaRuss';
+    font-size: 64px;
+    color: #676133;
+}
+
+.welcome__title span {
+    font-family: 'Angelica';
+    font-size: 96px;
+    position: absolute;
+}
+
+._husband {
+    top: 86px;
+    left: 127px;
+}
+
+._wife {
+    top: 187px;
+    left: 180px;
+}
+
+.D {
+    left: 0;
+    transform: rotate(-15deg) translate(-100%, -45px);
+}
+
+.N {
+    left: 0;
+    transform: rotate(-30deg) translate(-85%, -54px);
+}
+
+/* place */
+.place {
+    padding: 42px 0px;
+}
+
+.place__title h2 {
+    text-align: right;
+}
+
+.place__flex {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+img.place__image {
+    width: 212px;
+    border-radius: 10px 0px 0px 10px;
+}
+
+h3.place__name {
+    font-family: 'Angelica';
+    font-size: 48px;
+    color: #676133;
+}
+
+.place__address {
+    margin-top: 14px;
+}
+
+a.place__button {
+    display: block;
+    width: 80%;
+    background-color: #4F2E1B;
+    color: #FBF3D4;
+    font-size: 20px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    font-weight: 500;
+    padding: 21px 20px;
+    border-radius: 85px 0px 0px 85px;
+    margin-top: 14px;
+    margin-right: 0;
+    margin-left: auto;
+    text-align: center;
+}
+
+/* wishes */
+.wishes {
+    padding: 35px 0px;
+    background-color: #676133;
+    border-radius: 28px 28px 0px 0px;
+}
+
+.wishes h2,
+p {
+    color: #FBF3D4;
+    text-align: center;
+}
+
+.wishes__text {
+    position: relative;
+    width: 288px;
+    margin: 28px auto
+}
+
+.wishes__text p {
+    color: #FBF3D4;
+}
+
+.wishes__letter {
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translate(50%, -80%);
+}
+._with_letter {
+    margin-top: 42px;
+}
+
+@media (max-width: 350px) {
+    .welcome__title {
+        font-size: 48px;
+    }
+
+    .welcome__title span {
+        font-size: 80px;
+    }
+}
