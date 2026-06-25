@@ -1,13 +1,13 @@
 @font-face {
     font-family: 'Angelica';
-    src: url('fonts/Angelina.woff') format('woff');
+    src: url('../font/Angelina.woff') format('woff');
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'ALaRus';
-    src: url('fonts/Rus.woff') format('woff');
+    src: url('../font/Rus.woff') format('woff');
     font-weight: 400;
     font-style: normal;
 }
