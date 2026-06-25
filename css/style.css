@@ -28,6 +28,10 @@ p.text {
     color: #676133;
 }
 
+.right-text {
+    text-align: right;
+}
+
 .container {
     padding: 0 21px;
 }
@@ -163,8 +167,278 @@ p {
     right: 0;
     transform: translate(50%, -80%);
 }
+
 ._with_letter {
     margin-top: 42px;
+}
+
+/* dresscode */
+.dresscode {
+    padding-bottom: 63px;
+}
+
+.dresscode__title {
+    position: relative;
+}
+
+.dresscode__title img {
+    width: 100vw;
+    height: 240px;
+    object-fit: cover;
+    object-position: right -275px;
+}
+
+.dresscode__title h2 {
+    text-align: left;
+    position: absolute;
+    bottom: 7px;
+    left: 23px;
+}
+
+.dresscode__text {
+    margin-top: 14px;
+}
+
+.dresscode__image {
+    width: 48px;
+    height: 48px;
+}
+
+.dresscode__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.dresscode__list {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+.dresscode__list-man {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+}
+
+/* answer */
+.answer__title {
+    position: relative;
+}
+
+.answer__title img {
+    width: 100vw;
+    height: 240px;
+    object-fit: cover;
+    object-position: 0px -20px;
+}
+
+.answer__title-text {
+    position: absolute;
+    top: 7px;
+    left: 21px;
+}
+
+.answer__title h2 {
+    color: #F1E0A1;
+}
+
+.answer__title p {
+    color: #F1E0A1;
+}
+
+.form__items {
+    margin-top: 21px;
+}
+
+.form__item {
+    margin-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.form__label {
+    font-size: 14px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    color: #676133;
+    align-self: flex-start;
+    cursor: pointer;
+    position: relative;
+}
+
+.form__input {
+    padding: 7px 14px;
+    border: 1px solid #676133;
+    border-radius: 85px;
+    width: 205px;
+    font-size: 14px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    color: #676133;
+    align-self: flex-end;
+}
+
+.form__item-checkboxes {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: fit-content;
+    margin-left: auto;
+}
+
+.form__item-checkbox {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 7px;
+    align-items: center;
+    justify-content: end;
+    position: relative;
+}
+
+.form__item-radio {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 7px;
+    align-items: center;
+    justify-content: end;
+    position: relative;
+}
+
+/* Кастомный чекбокс */
+.form__checkbox {
+    position: absolute;
+    opacity: 0;
+    border-radius: 7px;
+    width: 21px;
+    height: 21px;
+    cursor: pointer;
+    margin: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.form__item-checkbox .form__label {
+    padding-right: 28px;
+}
+
+/* Квадратик чекбокса */
+.form__item-checkbox .form__label::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 21px;
+    height: 21px;
+    border: 2px solid #676133;
+    border-radius: 7px;
+    background: transparent;
+    transition: background 0.2s ease;
+}
+
+/* Кружок внутри (скрыт по умолчанию) */
+.form__item-checkbox .form__label::after {
+    content: '';
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #F1E0A1;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* Активное состояние чекбокса */
+.form__item-checkbox:has(.form__checkbox:checked) .form__label::before {
+    background: #676133;
+}
+
+.form__item-checkbox:has(.form__checkbox:checked) .form__label::after {
+    opacity: 1;
+}
+
+/* Кастомная радио-кнопка */
+.form__input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 21px;
+    height: 21px;
+    cursor: pointer;
+    margin: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.form__item-radio .form__label {
+    padding-right: 28px;
+}
+
+/* Круглая радио-кнопка */
+.form__item-radio .form__label::before {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 21px;
+    height: 21px;
+    border: 2px solid #676133;
+    border-radius: 50%;
+    background: transparent;
+    transition: background 0.2s ease;
+}
+
+/* Кружок внутри радио (скрыт по умолчанию) */
+.form__item-radio .form__label::after {
+    content: '';
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #F1E0A1;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* Активное состояние радио */
+.form__item-radio:has(.form__input[type="radio"]:checked) .form__label::before {
+    background: #676133;
+}
+
+.form__item-radio:has(.form__input[type="radio"]:checked) .form__label::after {
+    opacity: 1;
+}
+
+/* Фокус для доступности */
+.form__checkbox:focus-visible + .form__label::before,
+.form__input[type="radio"]:focus-visible + .form__label::before {
+    outline: 2px solid #F1E0A1;
+    outline-offset: 2px;
+}
+
+.form__button {
+    padding: 7px 42px;
+    background-color: #4F2E1B;
+    font-size: 14px;
+    font-family: 'Montserrat Alternates', sans-serif;
+    color: #FBF3D4;
+    border-radius: 85px;
+    cursor: pointer;
+    font-weight: 600;
 }
 
 @media (max-width: 350px) {
