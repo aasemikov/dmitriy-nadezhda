@@ -3,7 +3,7 @@ const GITHUB_CONFIG = {
     owner: 'aasemikov',           // Замените на ваш логин GitHub
     repo: 'form-result-dimnad',       // Замените на название репозитория
     path: 'guest.csv',           // Путь к файлу в репозитории
-    token: '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' // Замените на ваш токен
+    token: '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' // Замените на ваш токен
 };
 
 // ==================== ФУНКЦИИ ДЛЯ РАБОТЫ С GITHUB API ====================
