@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Angelica';
-    src: url('../font/Angelina.woff') format('woff');
+    src: url('../font/Angeliсa.woff') format('woff');
     font-weight: 400;
     font-style: normal;
 }
@@ -14,11 +14,18 @@
 
 h1.title,
 h2.title,
-h3.title h4.title,
+h3.title,
+h4.title,
 h5.title,
 h6.title {
     font-family: 'ALaRuss';
     font-size: 48px;
+    color: #676133;
+}
+
+h3.title-time {
+    font-family: 'Angelica';
+    font-size: 36px;
     color: #676133;
 }
 
@@ -424,8 +431,8 @@ p {
 }
 
 /* Фокус для доступности */
-.form__checkbox:focus-visible + .form__label::before,
-.form__input[type="radio"]:focus-visible + .form__label::before {
+.form__checkbox:focus-visible+.form__label::before,
+.form__input[type="radio"]:focus-visible+.form__label::before {
     outline: 2px solid #F1E0A1;
     outline-offset: 2px;
 }
