@@ -19,7 +19,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #fff9e8;
+    background-color: #FBF3D4;
     /* Текстура бумаги */
     background-image:
         radial-gradient(circle at 20% 30%, rgba(103, 97, 51, 0.03) 0%, transparent 50%),
@@ -31,6 +31,12 @@
     transform-origin: top center;
     transition: transform 1.4s cubic-bezier(0.68, -0.55, 0.265, 1.55),
         opacity 1s ease-out;
+}
+
+/* Убираем любые отступы у body, чтобы прелоадер занимал 100% экрана */
+body {
+    margin: 0;
+    padding: 0;
 }
 
 /* Анимация отрывания листочка */
@@ -121,7 +127,7 @@
     transform: translate(-50%, -50%);
     font-size: 20px;
     color: #676133;
-    background-color: #fff9e8;
+    background-color: #FBF3D4;
     padding: 0 10px;
 }
 
@@ -147,20 +153,26 @@
 }
 
 .preloader__word {
-    font-family: 'Angelica' serif;
+    font-family: 'Playfair Display', 'Georgia', serif;
     font-size: 72px;
     font-weight: 400;
     font-style: italic;
     color: #676133;
     opacity: 0;
-    transform: translateY(30px) scale(0.95);
+    transform: translateY(30px) scale(0.95) translateZ(0);
     display: block;
     letter-spacing: 3px;
     text-shadow: 0 2px 4px rgba(103, 97, 51, 0.1);
     line-height: 1.1;
+    /* Оптимизация рендеринга - убираем артефакты */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
 }
 
-/* Анимация появления слов - каждое слово появляется последовательно */
+/* Анимация появления слов - каждое слово появляется последовательно
+   Убрал filter: blur() - он вызывал мутность текста после анимации */
 .preloader__word--1 {
     animation: fadeInWord 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
 }
@@ -176,14 +188,12 @@
 @keyframes fadeInWord {
     0% {
         opacity: 0;
-        transform: translateY(30px) scale(0.95);
-        filter: blur(4px);
+        transform: translateY(30px) scale(0.95) translateZ(0);
     }
 
     100% {
         opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
+        transform: translateY(0) scale(1) translateZ(0);
     }
 }
 
@@ -198,16 +208,18 @@
 
 .preloader__image img {
     display: block;
-    width: 180px;
+    width: 145px;
     height: auto;
     opacity: 0;
     /* Начинаем глубоко за экраном по диагонали */
-    transform: translateX(-130%) translateY(90%) rotate(-8deg);
+    transform: translateX(-130%) translateY(90%) rotate(-8deg) translateZ(0);
     /* Плавная пружинистая анимация */
     animation:
         peekImageDiagonal 4s cubic-bezier(0.22, 1, 0.36, 1) 0.9s forwards,
         fadeInImageSoft 1.2s ease-out 0.9s forwards,
         fadeOutImageSoft 1.2s ease-in 3.8s forwards;
+    will-change: transform, opacity;
+    backface-visibility: hidden;
 }
 
 /* Анимация движения изображения
@@ -216,32 +228,32 @@
    затем отскакивает чуть глубже за экран, и возвращается в финал. */
 @keyframes peekImageDiagonal {
     0% {
-        transform: translateX(-130%) translateY(90%) rotate(-8deg);
+        transform: translateX(-130%) translateY(90%) rotate(-8deg) translateZ(0);
     }
 
     /* Overshoot: картинка выезжает, но остаётся на 12px за пределами экрана */
     25% {
-        transform: translateX(-12px) translateY(12px) rotate(1.5deg);
+        transform: translateX(-12px) translateY(12px) rotate(1.5deg) translateZ(0);
     }
 
     /* Отскок назад: чуть глубже за экран (2px за пределами) */
     35% {
-        transform: translateX(-2px) translateY(2px) rotate(-0.5deg);
+        transform: translateX(-2px) translateY(2px) rotate(-0.5deg) translateZ(0);
     }
 
     /* Финальная позиция: 5px за пределами экрана */
     45% {
-        transform: translateX(-5px) translateY(5px) rotate(0deg);
+        transform: translateX(-5px) translateY(5px) rotate(0deg) translateZ(0);
     }
 
     /* Удерживаем позицию */
     80% {
-        transform: translateX(-5px) translateY(5px) rotate(0deg);
+        transform: translateX(-5px) translateY(5px) rotate(0deg) translateZ(0);
     }
 
     /* Уезжаем обратно глубоко за экран */
     100% {
-        transform: translateX(-130%) translateY(90%) rotate(-8deg);
+        transform: translateX(-130%) translateY(90%) rotate(-8deg) translateZ(0);
     }
 }
 
@@ -272,13 +284,15 @@
     position: absolute;
     bottom: 12%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateZ(0);
     z-index: 2;
     opacity: 0;
     animation: fadeInDate 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2.1s forwards;
     display: flex;
     align-items: center;
     gap: 20px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .preloader__date-text {
@@ -304,12 +318,12 @@
 @keyframes fadeInDate {
     0% {
         opacity: 0;
-        transform: translateX(-50%) translateY(30px) scale(0.9);
+        transform: translateX(-50%) translateY(30px) scale(0.9) translateZ(0);
     }
 
     100% {
         opacity: 1;
-        transform: translateX(-50%) translateY(0) scale(1);
+        transform: translateX(-50%) translateY(0) scale(1) translateZ(0);
     }
 }
 
@@ -380,7 +394,7 @@ body:not(.preloading)>*:not(.preloader) {
     }
 
     .preloader__image img {
-        width: 150px;
+        width: 120px;
     }
 
     .preloader__date-text {
@@ -430,7 +444,7 @@ body:not(.preloading)>*:not(.preloader) {
     }
 
     .preloader__image img {
-        width: 120px;
+        width: 95px;
     }
 
     .preloader__date-text {
@@ -458,7 +472,7 @@ body:not(.preloading)>*:not(.preloader) {
     }
 
     .preloader__image img {
-        width: 100px;
+        width: 80px;
     }
 
     .preloader__date-text {
